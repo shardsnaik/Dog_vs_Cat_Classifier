@@ -11,9 +11,9 @@ class data_inges_pipeline:
             confi = ConfigManeger()
             x = confi.get_data_download_config()
             data = DataIngestion(config=x)
-            downloaded_path = data.download_datafile()
-            # data.move_data_file('C:\\Users\Admin\\.cache\\kagglehub\\datasets\\karakaggle\\kaggle-cat-vs-dog-dataset\\versions\\1')
-            data.move_data_file(downloaded_path)
+            # downloaded_path = data.download_datafile()
+            data.move_data_file('C:\\Users\Admin\\.cache\\kagglehub\\datasets\\karakaggle\\kaggle-cat-vs-dog-dataset\\versions\\1')
+            # data.move_data_file(downloaded_path)
 
 if __name__ == '__main__':
     try:

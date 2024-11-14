@@ -5,7 +5,6 @@ downloading_data:
   source_URL: karakaggle/kaggle-cat-vs-dog-dataset
 
 preproccessed_data:
-  unzip_dir: artifacts/unzip_dir
   datasets_dir: artifacts/datasets
   train_dir: artifacts/datasets/train
-  test_dir: artifacts/datasets/testn 
+  test_dir: artifacts/datasets/test
