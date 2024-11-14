@@ -9,7 +9,7 @@ class data_split_and_move:
     def main(self):
         obj = Preprocess()
         con = obj.splting_data_config()
-        split = split_and_move(config= con)
+        split = split_and_move(config= con, params= con)
         split.spliting_the_data()
         split.getting_size()
 

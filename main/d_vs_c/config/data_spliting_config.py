@@ -19,7 +19,9 @@ class Preprocess:
 
         split_config = {
             'train_dir': Path(config['train_dir']),
-            'test_dir': Path(config['test_dir'])
+            'test_dir': Path(config['test_dir']),
+              'test_size': self.params['test_size'],
+            'random_state': self.params['random_state']
         }
 
         return split_config
