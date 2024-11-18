@@ -8,3 +8,10 @@ preproccessed_data:
   datasets_dir: artifacts/datasets
   train_dir: artifacts/datasets/train
   test_dir: artifacts/datasets/test
+
+
+image_categories:
+  - train/Dog
+  - train/Cat
+  - test/Dog
+  - test/Cat
