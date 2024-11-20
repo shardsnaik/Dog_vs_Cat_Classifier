@@ -28,7 +28,7 @@ class Pre_process_img:
         try:
             # Read the image
             img = cv2.imread(file_path)
-            if img is None or len(img.shape) != 3 or img.shape[2] != 3:
+            if len(img.shape) != 3 or img.shape[2] not in [1, 3, 4]:
                 raise ValueError("Unexpected image channels")
             img = cv2.resize(img, (224, 224))  # Example: Resize to 224x224
         except Exception as e:
@@ -37,7 +37,15 @@ class Pre_process_img:
             # img_num = file_path.split('/')[-1].split('.')[0]
             print(f" image number:-  {img_num}" )
             self.list.append(img_num)
+             # Delete the corrupt file
+            try:
+                os.remove(file_path)
+                logger.info(f"Deleted corrupt file: {file_path}")
+            except OSError as delete_error:
+                logger.error(f"Failed to delete file {file_path}: {delete_error}")
+            
             return None
+
         return img
     
     def process_img(self):

@@ -10,7 +10,13 @@ preproccessed_data:
   test_dir: artifacts/datasets/test
 
 image_categories:
-  - train/Dog
   - train/Cat
-  - test/Dog
+  - train/Dog
   - test/Cat
+  - test/Dog
+
+trained_model:
+  trained_model_path: artifacts/trained_model
+  datasets_dir: artifacts/datasets
+  train_dir: artifacts/datasets/train
+  test_dir: artifacts/datasets/test
