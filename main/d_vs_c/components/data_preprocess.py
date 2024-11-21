@@ -25,28 +25,45 @@ class Pre_process_img:
     #     return img
 
     def check_channel(self, file_path):
+        # try:
+        #     # Read the image
+        #     img = cv2.imread(file_path)
+        #     if len(img.shape) != 3 or img.shape[2] not in [1, 3, 4]:
+        #         raise ValueError("Unexpected image channels")
+        #     img = cv2.resize(img, (224, 224))  # Example: Resize to 224x224
+        # except Exception as e:
+        #     logger.warning(f"Skipping file {file_path} due to error: {e}") 
+        #     img_num = os.path.splitext(os.path.basename(file_path))[0]
+        #     # img_num = file_path.split('/')[-1].split('.')[0]
+        #     print(f" image number:-  {img_num}" )
+        #     self.list.append(img_num)
+        #      # Delete the corrupt file
+        #     try:
+        #         os.remove(file_path)
+        #         logger.info(f"Deleted corrupt file: {file_path}")
+        #     except OSError as delete_error:
+        #         logger.error(f"Failed to delete file {file_path}: {delete_error}")
+            
+        #     return None
+
+
+
+        ###########################################
+
+        # Load the raw data from the file as a string
+        img = tf.io.read_file(file_path)
         try:
-            # Read the image
-            img = cv2.imread(file_path)
-            if len(img.shape) != 3 or img.shape[2] not in [1, 3, 4]:
-                raise ValueError("Unexpected image channels")
-            img = cv2.resize(img, (224, 224))  # Example: Resize to 224x224
-        except Exception as e:
-            logger.warning(f"Skipping file {file_path} due to error: {e}") 
-            img_num = os.path.splitext(os.path.basename(file_path))[0]
-            # img_num = file_path.split('/')[-1].split('.')[0]
+            img = tf.image.decode_image(img, channels=3)  # Decode with 3 channels (RGB)
+            img = tf.image.convert_image_dtype(img, tf.float32)  # Convert to [0,1]
+        except tf.errors.InvalidArgumentError:
+            print(f"Skipping file {file_path} due to unexpected channels.")
+            img_num = file_path.split('/')[-1].split('.')[0]
             print(f" image number:-  {img_num}" )
             self.list.append(img_num)
-             # Delete the corrupt file
-            try:
-                os.remove(file_path)
-                logger.info(f"Deleted corrupt file: {file_path}")
-            except OSError as delete_error:
-                logger.error(f"Failed to delete file {file_path}: {delete_error}")
-            
-            return None
-
+            return None 
         return img
+
+
     
     def process_img(self):
         directory = self.config['datasets_dir']

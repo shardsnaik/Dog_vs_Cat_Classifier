@@ -35,16 +35,16 @@ class split_and_move:
                 shutil.copy(os.path.join(categories_path, img), os.path.join(self.config['test_dir'], categories, img))
 
            
-            logger.info(f'Images are copied from {categories_path} to {self.config['train_dir']} successfully ....................... ')
-            logger.info(f'Images are copied from {categories_path} to {self.config['test_dir']} successfully ....................... ')
+            logger.info(f"Images are copied from {categories_path} to {self.config['train_dir']} successfully ....................... ")
+            logger.info(f"Images are copied from {categories_path} to {self.config['test_dir']} successfully ....................... ")
 
     def getting_size(self):
             config = self.config
             
-            logger.info(f'The number of images of Dog in the Train directory ===> {len(os.listdir(os.path.join(config['train_dir'], "Dog")))}')
-            logger.info(f'The number of images of Cat in the Train directory ===> {len(os.listdir(os.path.join(config['train_dir'], "Cat")))}')
+            logger.info(f'The number of images of Dog in the Train directory ===> {len(os.listdir(os.path.join(config["train_dir"], "Dog")))}')
+            logger.info(f'The number of images of Cat in the Train directory ===> {len(os.listdir(os.path.join(config["train_dir"], "Cat")))}')
             logger.info('     ')
-            logger.info(f'The number of images of Dog in the Test directory ===> {len(os.listdir(os.path.join(config['test_dir'], "Dog")))}')
-            logger.info(f'The number of images of Cat in the Test directory ===> {len(os.listdir(os.path.join(config['test_dir'], "Cat")))}')
+            logger.info(f'The number of images of Dog in the Test directory ===> {len(os.listdir(os.path.join(config["test_dir"], "Dog")))}')
+            logger.info(f'The number of images of Cat in the Test directory ===> {len(os.listdir(os.path.join(config["test_dir"], "Cat")))}')
 
         

@@ -23,4 +23,8 @@ class DataIngestion:
         for filename in os.listdir(path):
             full_filename = os.path.join(path, filename)
             shutil.move(full_filename, self.config['source_dir'] )
-        logger.info(f'File moved from {path} to {self.config['source_dir']}')
+
+        logger.info(f"File moved from {path} to {self.config['source_dir']}")
+
+
+
