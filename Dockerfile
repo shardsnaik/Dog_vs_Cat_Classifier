@@ -19,8 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code
 COPY . .
 
-# Define environment variable (if required)
-# ENV NAME vir_env
+ENV DAGSHUB_USERNAME=sharadnaik001
+ENV DAGSHUB_TOKEN=f86ef673fbadc6b8a3188c34cd7218030c6b1f05
 
 # Expose the port (optional, for documentation purposes)
 # EXPOSE 80

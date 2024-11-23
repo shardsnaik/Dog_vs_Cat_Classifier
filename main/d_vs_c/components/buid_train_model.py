@@ -114,6 +114,8 @@ class plot_nd_save:
         model_path = os.path.join(self.config['trained_model_path'], 'model_v-03.h5')
         self.model.save(model_path)
         logger.info(f"Model saved at {model_path}")
+
+        
         model_weight = os.path.join(self.config['trained_model_path'], 'model_weights_v-03.weights.h5')
         self.model.save_weights(model_weight)
         logger.info(f"Model saved at {model_weight}")

@@ -42,7 +42,8 @@ class ConfigManeger:
             'l2_regularization': self.params['l2_regularization'],
             'optimizer': self.params['optimizer'],
             'loss': self.params['loss'],
-            'epochs': self.params['epochs']
+            'epochs': self.params['epochs'],
+            'trained_model_path': Path(config['trained_model_path']),
         }
         return bild_model
 

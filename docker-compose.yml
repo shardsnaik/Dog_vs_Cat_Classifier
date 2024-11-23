@@ -7,4 +7,7 @@ services:
       - .:/app
     ports:
       - "8000:80"
-    command: python main_file.py
+    environment:
+      - DAGSHUB_USERNAME=${sharadnaik001}
+      - DAGSHUB_TOKEN=${f86ef673fbadc6b8a3188c34cd7218030c6b1f05}
+    command: ["python", "main_file.py"]

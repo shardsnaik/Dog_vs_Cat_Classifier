@@ -20,3 +20,4 @@ trained_model:
   datasets_dir: artifacts/datasets
   train_dir: artifacts/datasets/train
   test_dir: artifacts/datasets/test
+  trained_model_name: 'model_v-03_cpy.h5'

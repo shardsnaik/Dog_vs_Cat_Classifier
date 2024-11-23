@@ -4,6 +4,7 @@ from box import ConfigBox
 import os
 import logging
 from ensure import ensure_annotations
+import json
 
 @ensure_annotations
 def read_yaml(path: Path):
@@ -30,3 +31,10 @@ def create_directories(path_to_dirs:list, verbose=True):
             logging.info(f'created directory at: {path}')
 
 # read_yaml(Path('C:\\dog_vs_cat_clasifier\\config\\config.yaml'))
+
+@ensure_annotations
+def save_json_file(path: Path, data: dict):
+    with open(path, 'w') as f:
+        json.dump(data, f, indent=4)
+
+    logging.info(f"json file saved at: {path}")
