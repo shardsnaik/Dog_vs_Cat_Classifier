@@ -10,6 +10,13 @@ from main.d_vs_c.funtions.comon_funtn import save_json_file
 from main.d_vs_c import logger
 
 dagshub.init(repo_owner='sharadnaik001', repo_name='Dog_vs_Cat_Classifier', mlflow=True)
+# dagshub.init(
+#     repo_owner="sharadnaik001",
+#     repo_name="Dog_vs_Cat_Classifier",
+#     mlflow=True,
+#     username="sharadnaik001",
+#     password="f86ef673fbadc6b8a3188c34cd7218030c6b1f05"
+# )
 
 import mlflow
 with mlflow.start_run():
@@ -47,12 +54,19 @@ class Evalution:
 
 
     def implementing_mlflow(self):
-        tracking_uri = 'https://dagshub.com/sharadnaik001/Dog_vs_Cat_Classifier.mlflow'
+        tracking_uri = 'https://dagshub.com/sharadnaik001/Dog_vs_Cat_Classifier.mlflow/#/'
 
         mlflow.set_tracking_uri(tracking_uri)
         logger.info('  ======>   ML-Flow Started   <====== ')
 
         mlflow.set_experiment("Dog_vs_Cat_Classifier")
+
+        
+        # # Authenticate using credentials
+        # import os
+        # os.environ["MLFLOW_TRACKING_USERNAME"] = "<username>"
+        # os.environ["MLFLOW_TRACKING_PASSWORD"] = "<token>"
+        
 
 
         # Step 2: Enable DAGsHub Logger

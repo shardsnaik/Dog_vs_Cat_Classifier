@@ -11,9 +11,9 @@ class data_inges_pipeline:
             confi = ConfigManeger()
             x = confi.get_data_download_config()
             data = DataIngestion(config=x)
-            # downloaded_path = data.download_datafile()
-            data.move_data_file("C:\\Users\\Public\\Deep Learning\\datasets\\PetImages")
-            # data.move_data_file(downloaded_path)
+            downloaded_path = data.download_datafile()
+            data.move_data_file(downloaded_path)
+            # data.move_data_file("C:\\Users\\Public\\Deep Learning\\datasets\\PetImages")
 
 if __name__ == '__main__':
     try:

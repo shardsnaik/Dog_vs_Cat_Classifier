@@ -1,13 +1,16 @@
-version: '3.8'
-services:
-  app:
-    build:
-      context: .
-    volumes:
-      - .:/app
-    ports:
-      - "8000:80"
-    environment:
-      - DAGSHUB_USERNAME=${sharadnaik001}
-      - DAGSHUB_TOKEN=${f86ef673fbadc6b8a3188c34cd7218030c6b1f05}
-    command: ["python", "main_file.py"]
+# version: '3.8'
+# services:
+#   app:
+#     build:
+#       context: .
+#     volumes:
+#       - .:/app
+#     ports:
+#       - "8000:80"
+#     environment:
+#       - DAGSHUB_USERNAME=${sharadnaik001}
+#       - DAGSHUB_TOKEN=${f86ef673fbadc6b8a3188c34cd7218030c6b1f05}
+#     command: ["python", "main_file.py"]
+# 
+
+# TO RUN DVC FILE IN DOCKER 

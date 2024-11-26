@@ -11,6 +11,7 @@ class preprocess_pipeline:
        config = obj.pre_process_config()
        pre = Pre_process_img(config=config)
        pre.process_img()
+       logger.info ('|||||||||||   Removing Images   |||||||||')
        pre.remove_img()
 
 

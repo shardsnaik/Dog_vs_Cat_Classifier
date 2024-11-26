@@ -57,7 +57,8 @@ class Pre_process_img:
             img = tf.image.convert_image_dtype(img, tf.float32)  # Convert to [0,1]
         except tf.errors.InvalidArgumentError:
             print(f"Skipping file {file_path} due to unexpected channels.")
-            img_num = file_path.split('/')[-1].split('.')[0]
+            # img_num = file_path.split('/')[-1].split('.')[0]
+            img_num = os.path.basename(file_path).split('.')[0]
             print(f" image number:-  {img_num}" )
             self.list.append(img_num)
             return None 

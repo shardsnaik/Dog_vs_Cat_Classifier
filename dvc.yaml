@@ -1,0 +1,70 @@
+stages:
+  data_ingestion:
+    cmd: python main\d_vs_c\pipelines\data_ingestion_pipeline.py
+    deps:
+      - main\d_vs_c\pipelines\data_ingestion_pipeline.py
+      - config\config.yaml
+    outs:
+      - artifacts\raw_data
+
+
+  data_split_and_move:
+    cmd: python main\d_vs_c\pipelines\split_and_move_pipeline.py
+    deps:
+      - main\d_vs_c\pipelines\split_and_move_pipeline.py
+      - config\config.yaml
+    outs:
+      - artifacts\datasets
+
+
+  data_preprocess_step:
+    cmd: python main\d_vs_c\pipelines\data_preprocess_pipeline.py
+    deps:
+      - main\d_vs_c\pipelines\data_preprocess_pipeline.py
+      - config\config.yaml
+    outs:
+      - artifacts\filter_img.txt
+
+
+  training_model:
+    cmd: python main\d_vs_c\pipelines\model_training_pipeline.py
+    deps:
+      - main\d_vs_c\pipelines\model_training_pipeline.py
+      - config\config.yaml
+      - artifacts\datasets
+    params: 
+      - test_size
+      - random_state
+      - batch_size
+      - seed
+      - image_size
+      - conv_first_layer
+      - conv_sec_layer
+      - conv_third_layer
+      - conv_fourth_layer
+      - kernel_size
+      - input_shape
+      - pool_size
+      - strides
+      - dropout_rate
+      - dense_first_layer
+      - dense_second_layer
+      - output_layer
+      - l2_regularization
+      - optimizer
+      - loss
+      - epochs
+    outs:
+      - artifacts\trained_model
+
+
+  # model_evaluation:
+  #   cmd: python main\d_vs_c\pipelines\model_evalution_pipeline.py
+  #   deps:
+  #     - main\d_vs_c\pipelines\model_evalution_pipeline.py
+  #     - config\config.yaml
+  #     - artifacts\datasets\test
+  #     - artifacts\trained_model
+  #   outs:
+  #     - scores.json:
+  #         cache: False

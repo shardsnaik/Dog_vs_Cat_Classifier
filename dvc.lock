@@ -1,0 +1,52 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python main\d_vs_c\pipelines\data_ingestion_pipeline.py
+    deps:
+    - path: config\config.yaml
+      hash: md5
+      md5: 4ec1c828db193f70dd7a9b38c952c827
+      size: 568
+    - path: main\d_vs_c\pipelines\data_ingestion_pipeline.py
+      hash: md5
+      md5: c541fa135f64c98f9bd7f354b506ac79
+      size: 940
+    outs:
+    - path: artifacts\raw_data
+      hash: md5
+      md5: db1c09c0f959c0f184adaa91d83090f0.dir
+      size: 864469924
+      nfiles: 24963
+  data_split_and_move:
+    cmd: python main\d_vs_c\pipelines\split_and_move_pipeline.py
+    deps:
+    - path: config\config.yaml
+      hash: md5
+      md5: 4ec1c828db193f70dd7a9b38c952c827
+      size: 568
+    - path: main\d_vs_c\pipelines\split_and_move_pipeline.py
+      hash: md5
+      md5: a1cfdcb9fc6e63dd4ba6c6f34a1b766b
+      size: 790
+    outs:
+    - path: artifacts\datasets
+      hash: md5
+      md5: 08db2cb7da4faebe27e77e47d3204db4.dir
+      size: 864434275
+      nfiles: 24961
+  data_preprocess_step:
+    cmd: python main\d_vs_c\pipelines\data_preprocess_pipeline.py
+    deps:
+    - path: config\config.yaml
+      hash: md5
+      md5: 4ec1c828db193f70dd7a9b38c952c827
+      size: 568
+    - path: main\d_vs_c\pipelines\data_preprocess_pipeline.py
+      hash: md5
+      md5: f4a508b89463cf6596c081e85bcfdfc7
+      size: 848
+    outs:
+    - path: artifacts\filter_img.txt
+      hash: md5
+      md5: eb2ee987e4580a5499f61d7748e8a41a
+      size: 54
