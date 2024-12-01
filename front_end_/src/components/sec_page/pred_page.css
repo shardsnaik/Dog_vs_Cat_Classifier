@@ -1,10 +1,28 @@
 .md_name {
-    font-size: 6vh;
-    margin: 4vh 0 4vh 0;
+    font-size: 5vh;
+    margin: 4vh 1vw 4vh 0;
     background-color: rgba(45, 43, 43, 0.5); /* Light black with 50% opacity */
-    width: fit-content;
     color: black;
-    border-radius: 2vw;
+    border-radius: 1.7vw;
+    text-transform: uppercase;
+}
+.md_nm{
+    width: 40vw;
+    font-weight: 600;
+}
+.txt_div{
+    gap: 2vh;
+    display: grid;
+}
+.cl_nm{
+    width: 14vw;
+    font-size: 2.5vh;
+    margin-left: 2vw;
+}
+.name2{
+    font-size: 2.5vh;
+    margin: 0;
+    width: 20vw;
 }
 
 .main_div{
@@ -16,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 28vw;
+    gap: 7vw;
     margin-top: 5vh;
 
 }
@@ -28,7 +46,7 @@
 .wid{
     width: 90%;
     background-color: #464D53 ;
-    height: 54vh;
+    height: 60svh;
     border-top-left-radius: 1.5vh;
 }
 
@@ -37,12 +55,27 @@
 .img{
     width: 27vw;
     height: 23vh;
-    background-color: rebeccapurple;
+    background-color: #3c3f45;
+        position: relative;
     border-radius: 1.8vw;
-    position: relative;
 }
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 1.8vw;
+    
+  }
+  
 .namee{
     margin-bottom: 2vh;
+    font-size: 2.5vh;
+    font-weight: 600;
+    text-transform: uppercase;
+    /* background-color: rgba(45, 43, 43, 0.2);
+    width: auto; */
+
 }
 
 
@@ -92,9 +125,34 @@
 
 /* Upload button styles */
 .upload-button {
-    background-color: #4CAF50; /* Green */
-    color: white;
+    font-size: 2.5vh;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
+.upload-button::before {
+    background-color: #4CAF50; /* Green */
+    content: 'UPLOAD';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    width: 10vw;
+    border-radius: 1vh
+  }
+
+.upld_functn {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+
+
 
 .upload-button:hover {
     background-color: #45a049;
@@ -113,6 +171,8 @@
 }
 
 
+
+
 /* Blinking green light animation */
 @keyframes blink {
     0%, 100% {
@@ -126,10 +186,7 @@
 /* Common styles for img div */
 .bck_div{
     position: absolute;
-    width: 40vw;
-    height: 30vh;
-    top: 21vh;
-    right: 1vw;
+
     border-radius: 50%; /* Make it a circle */
     display: flex;
     align-items: center;
@@ -141,4 +198,22 @@
 
     filter: blur(100px);
     
+}
+.dg_bck_div{
+    width: 30vw;
+    height: 20vh;
+    top: 26vh;
+    right: 6vw;
+
+}
+.ct_bck_div{
+    height: 21vh;
+    left: 6vw;
+    width: 31vh;
+    top: 27vh;
+
+}
+.upld_functn{
+    border-radius: 1vh;
+    cursor: pointer;
 }
