@@ -22,7 +22,7 @@ jobs:
 
     # Step 3: Install frontend dependencies and build React app
     - name: Install dependencies and build React app
-      working-directory: frontend/src  # Specify the React app folder
+      working-directory: front_end_  # Specify the React app folder
       run: |
         npm install
         npm run build
@@ -54,5 +54,5 @@ jobs:
     # Step 8: Deploy to Heroku
     - name: Deploy to Heroku
       run: |
-        git remote add heroku https://git.heroku.com/your-heroku-app-name.git
+        git remote add heroku https://git.heroku.com/cnn.git
         git push heroku main  # Push to Heroku main or your target branch
