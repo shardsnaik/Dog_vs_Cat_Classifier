@@ -23,9 +23,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Deploy to Heroku
+        - name: Install Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh
+  
+      # Step 7: Login to Heroku using the Heroku API key
+    - name: Login to Heroku
       env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}  # Set the API key as a secret in GitHub
+      run: echo $HEROKU_API_KEY | heroku auth:token
+
+    # Step 8: Deploy to Heroku
+    - name: Deploy to Heroku
       run: |
         git remote add heroku https://git.heroku.com/cnn.git
-        git push heroku main -f
+        git push heroku main  # Push to Heroku main or your target branch
