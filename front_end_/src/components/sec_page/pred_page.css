@@ -1,28 +1,44 @@
+body{
+    background-color: #1a1a1a; /* Darker background for contrast */
+    font-family: 'Arial', sans-serif;
+    /* overflow: hidden; */
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .md_name {
-    font-size: 5vh;
-    margin: 4vh 1vw 4vh 0;
-    background-color: rgba(45, 43, 43, 0.5); /* Light black with 50% opacity */
-    color: black;
+    font-size: 8vh;
+    margin: 8vh 1vw 8vh 0;
+    background-color: rgba(60, 60, 60, 0.8);    color: black;
+    color: #f39c12;
     border-radius: 1.7vw;
     text-transform: uppercase;
+    font-weight: bold;
+    padding: 2vh;text-align: center;
 }
 .md_nm{
-    width: 40vw;
+    width: 35vw;
     font-weight: 600;
 }
 .txt_div{
-    gap: 2vh;
+    gap: 1.5vh;
     display: grid;
+    color: #d1d1d1; 
 }
-.cl_nm{
+.cl_nm{height: 10vh;
+    color: #f39c12;
     width: 14vw;
-    font-size: 2.5vh;
+    font-size: 4vh;
+    font-weight: 500;
     margin-left: 2vw;
+    font-family: 'Arial', sans-serif;
 }
 .name2{
-    font-size: 2.5vh;
+    font-size: 4vh;
     margin: 0;
     width: 20vw;
+    color:#f0f0f0
 }
 
 .main_div{
@@ -34,7 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7vw;
+    gap: 5vw;
     margin-top: 5vh;
 
 }
@@ -46,24 +62,26 @@
 .wid{
     width: 90%;
     background-color: #464D53 ;
-    height: 60svh;
+    height: 60vh;
     border-top-left-radius: 1.5vh;
+    border-top-right-radius: 1.5vh;
 }
-
-
 
 .img{
     width: 27vw;
-    height: 23vh;
+    height: 36vh;
     background-color: #3c3f45;
-        position: relative;
+    position: relative;
     border-radius: 1.8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .preview-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 2px solid #ccc;
+    border: 2px solid #f39c12;
     border-radius: 1.8vw;
     
   }
@@ -75,6 +93,7 @@
     text-transform: uppercase;
     /* background-color: rgba(45, 43, 43, 0.2);
     width: auto; */
+    color: #e0e0e0;
 
 }
 
@@ -90,7 +109,7 @@
 
 /* Common styles for both buttons */
 .button {
-    font-size: 2vh;
+    font-size: 4vh;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -125,7 +144,7 @@
 
 /* Upload button styles */
 .upload-button {
-    font-size: 2.5vh;
+    font-size: 4vh;
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -139,7 +158,7 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
     width: 10vw;
-    border-radius: 1vh
+    border-radius: .89vh
   }
 
 .upld_functn {
@@ -195,25 +214,115 @@
     animation: blink 1s infinite; /* Blinking animation */
     color: white; /* Text color */
     font-weight: bold;
-
+z-index:0;
     filter: blur(100px);
     
 }
 .dg_bck_div{
-    width: 30vw;
-    height: 20vh;
-    top: 26vh;
+    height: 35vh;
+    width: 45vh;
+    top: 38vh;
     right: 6vw;
 
 }
 .ct_bck_div{
-    height: 21vh;
-    left: 6vw;
-    width: 31vh;
-    top: 27vh;
+    height: 35vh;
+    width: 45vh;
+    left: 10vw;
+    top: 40vh;
 
 }
 .upld_functn{
     border-radius: 1vh;
     cursor: pointer;
+}
+
+
+@media screen and (max-width:500px) {
+    body{
+        align-items: center;
+    }
+    
+    .md_nm {
+        font-size: 5vh;
+        width: auto;
+    }
+
+
+.clas{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+
+}
+.txt_div {
+    order: -1; /* Place it above the other elements */
+    margin-bottom: 1rem; /* Optional: Add some spacing */
+  }
+
+  .ct_block {
+    order: 0; /* Default position below .txt_div */
+  }
+.wid{
+    width: 80%;
+    background-color: #464D53 ;
+    height: 145vh;
+    border-top-left-radius: 1.5vh;
+    border-top-right-radius: 1.5vh;}
+
+.img{
+    width: 70vw
+}
+.cl_nm {
+    width: 80%;
+    margin: 2vh;
+    
+}
+.name2 {
+    margin: 1vh;
+    width: 80%;
+
+}
+.ct_block{
+display: grid
+;
+    justify-content: center;
+}
+.dg_block{
+display: grid
+;margin-top: 4vh;
+    justify-content: center;
+}
+.wid{
+    position: relative;
+}
+.upload-button::before {
+    width: 34vw;
+    font-size: 3vh;
+    margin-top: 1vh;
+}
+.button::after {
+    width: 60vw;
+    font-size: 3vw;
+}
+
+.dg_bck_div {
+
+    top: 92vh;
+    right: -2vw;
+    height: 30vh;
+    width: 40vh;
+    
+}
+.ct_bck_div{
+    height: 30vh;
+    width: 40vh;
+    top: 48vh;
+    left: -2vh;
+}
+
+.last_test{
+    margin: 3vh;
+    height: 5vh;
+}
 }

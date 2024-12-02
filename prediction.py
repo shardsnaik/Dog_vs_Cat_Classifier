@@ -30,5 +30,5 @@ class Prediction:
             
         # else: print('The Image Contain Dog')
 
-obj = Prediction("C:\\Users\\Admin\\Downloads\\c.jpg")
+obj = Prediction("C:\\Dog_vs_Cat_Classifier\\download (1).jpg")
 obj.predict()

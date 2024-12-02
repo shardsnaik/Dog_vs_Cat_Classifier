@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './App.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Pred from '../src/components/sec_page/Pred'
-import { BrowserRouter as Router, Route, Routes } from 'react-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path='/' element={ <App />} />
+        <Route path='/home' element={ <App />} />
+        <Route path='/pred' element={<Pred />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

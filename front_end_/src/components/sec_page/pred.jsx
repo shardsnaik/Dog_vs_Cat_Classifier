@@ -117,7 +117,7 @@ const Pred = () => {
 {loading && <p>Loading...</p>}
           {prediction && (
             <div className="result">
-              <p>Prediction: {prediction.class}</p>
+              <p className='last_test'>Prediction: {prediction.class}</p>
               {/* <p>confidence: {prediction.confidence.toFixed(2)}</p> */}
             </div>
           )}

@@ -58,6 +58,8 @@ from flask_cors import CORS
 import tensorflow
 import os
 import numpy as np
+from tensorflow.keras.preprocessing import image
+
 from PIL import Image
 import io
 
@@ -79,13 +81,19 @@ def pred():
         # Process the image
         image = Image.open(file.stream).convert('RGB')
         image = image.resize((256, 256))  # Resize to match your model's input shape
-        image_array = np.array(image) / 255.0  # Normalize the image
+        # image_array = np.array(image) / 255.0  # Normalize the image
+        image_array = np.array(image) # no need to normalize 
+        # if do normalize he output will different
         image_array = np.expand_dims(image_array, axis=0)  # Add batch dimension
 
         # Make prediction
         prediction = model.predict(image_array)
+        print(prediction)
+        print()
+        print(prediction[0][0])
         # prediction output 2 dimension array [[0.5134971]]
         predicted_class = 'Cat' if prediction[0][0] < 0.5 else 'Dog'
+        print(f"Predicted class: {predicted_class}")
 
         return jsonify({'class': predicted_class}), 200
 
