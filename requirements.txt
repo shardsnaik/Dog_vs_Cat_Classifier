@@ -9,3 +9,5 @@ matplotlib==3.9.2
 python-box==7.2.0
 # mlflow==2.18.0
 # dagshub==0.3.45
+gunicorn==21.2.0
+flask-cors==3.0.10
