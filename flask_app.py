@@ -68,7 +68,7 @@ CORS(app)
 
 # Load your trained model
 # model = tensorflow.keras.models.load_model(os.path.join('artifacts\\trained_model','model_v-03.h5'))
-model = tensorflow.keras.models.load_model('C:\\Dog_vs_Cat_Classifier\\artifacts\\trained_model\\model_v-03.h5')
+model = tensorflow.keras.models.load_model('C:\\Dog_vs_Cat_Classifier\\artifacts\\trained_model\\model_v-03.h5')  ## loading the model
 
 @app.route('/predict', methods=['POST'])
 def pred():
@@ -99,6 +99,8 @@ def pred():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
