@@ -28,10 +28,12 @@ jobs:
 
     - name: Login to Heroku
       env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: echo $HEROKU_API_KEY | heroku auth:token
+        HEROKU_API_KEY: HRKU-824d6b1c-7f8c-4a3c-b4b3-d2e3703bc4c4
+      run: heroku auth:token
 
     - name: Deploy to Heroku
+      env:
+        HEROKU_API_KEY: HRKU-824d6b1c-7f8c-4a3c-b4b3-d2e3703bc4c4
       run: |
-        git remote add heroku https://git.heroku.com/cnn.git
+        git remote add heroku https://heroku:HRKU-824d6b1c-7f8c-4a3c-b4b3-d2e3703bc4c4@git.heroku.com/cnn.git
         git push heroku main
